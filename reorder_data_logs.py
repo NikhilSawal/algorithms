@@ -10,12 +10,17 @@ def reorderLogFiles(logs):
             let_list.append(log)
 
     for i in range(len(let_list)-1):
+        swapped = False
         for j in range(0, len(let_list)-i-1):
             if let_list[j][let_list[j].find(" "): ] > let_list[j+1][let_list[j+1].find(" "): ]:
                 let_list[j], let_list[j+1] = let_list[j+1], let_list[j]
             elif let_list[j][let_list[j].find(" "): ] == let_list[j+1][let_list[j+1].find(" "): ]:
                 if let_list[j][ :let_list[j].find(" ")] > let_list[j+1][ :let_list[j+1].find(" ")]:
                     let_list[j], let_list[j+1] = let_list[j+1], let_list[j]
+            swapped = True
+
+        if not swapped:
+            break
 
     return let_list + dig_list
 
@@ -29,4 +34,9 @@ logs = ["j je", "b fjt", "7 zbr", "m le", "o 33"]
 print(reorderLogFiles(logs))
 
 logs = ["a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo","a2 act car"]
+print(reorderLogFiles(logs))
+
+logs = ["a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo","a2 act car",
+        "dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero",
+        "j je", "b fjt", "7 zbr", "m le", "o 33", "a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"]
 print(reorderLogFiles(logs))
