@@ -13,6 +13,9 @@ def reorderLogFiles(logs):
         for j in range(0, len(let_list)-i-1):
             if let_list[j][let_list[j].find(" "): ] > let_list[j+1][let_list[j+1].find(" "): ]:
                 let_list[j], let_list[j+1] = let_list[j+1], let_list[j]
+            elif let_list[j][let_list[j].find(" "): ] == let_list[j+1][let_list[j+1].find(" "): ]:
+                if let_list[j][ :let_list[j].find(" ")] > let_list[j+1][ :let_list[j+1].find(" ")]:
+                    let_list[j], let_list[j+1] = let_list[j+1], let_list[j]
 
     return let_list + dig_list
 
@@ -27,5 +30,3 @@ print(reorderLogFiles(logs))
 
 logs = ["a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo","a2 act car"]
 print(reorderLogFiles(logs))
-
-print("le" < "zbr")
